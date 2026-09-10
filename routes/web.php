@@ -7,8 +7,8 @@ Route::get('/', function () {
 });
 
 Route::get('/', function () {
-        return view('front-end.index');
-    })->name('home');
+    return view('front-end.index');
+})->name('home');
 
 Route::prefix('/')->group(function () {
     // Route::post('/login', function () {
@@ -25,8 +25,8 @@ Route::prefix('/')->group(function () {
 Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', function () {
-            return view('backend.dashboard');
-        })->name('dashboard');
+        return view('backend.dashboard');
+    })->name('dashboard');
     //Password
     Route::prefix('password')->group(function () {
         Route::get('/new', function () {
@@ -39,16 +39,22 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', function () {
             return view('backend.password.edit');
         })->name('backend.password.edit');
-       // Route::post('/update/{id}', [PasswordManagerController::class, 'update'])->name('password.update');
-       // Route::delete('/delete/{id}', [PasswordManagerController::class, 'delete'])->name('password.delete');
+        // Route::post('/update/{id}', [PasswordManagerController::class, 'update'])->name('password.update');
+        // Route::delete('/delete/{id}', [PasswordManagerController::class, 'delete'])->name('password.delete');
     });
 
 
     Route::prefix('category')->group(function () {
-        Route::get('/new', 
-        function () {
-            return view('backend.passwordCategory.edit');
-        })->name('category.store'); // Route to display form
+
+        Route::get('/', function () {
+            return view('backend.passwordCategory.index');
+        })->name('category.index');
+        Route::get(
+            '/new',
+            function () {
+                return view('backend.passwordCategory.edit');
+            }
+        )->name('category.store'); // Route to display form
         //Route::post('/save', [PasswordCategoryController::class, 'storeData'])->name('category.save'); // Route to handle form submission
         Route::get('/show/{id}', function () {
             return view('backend.passwordCategory.show');
@@ -56,7 +62,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', function () {
             return view('backend.passwordCategory.edit');
         })->name('category.edit');
-     //   Route::post('/update/{id}', [PasswordCategoryController::class, 'updateData'])->name('category.update');
-     //   Route::delete('/delete/{id}', [PasswordCategoryController::class, 'destroy'])->name('categories.destroy');
+        //   Route::post('/update/{id}', [PasswordCategoryController::class, 'updateData'])->name('category.update');
+        //   Route::delete('/delete/{id}', [PasswordCategoryController::class, 'destroy'])->name('categories.destroy');
     });
 });
