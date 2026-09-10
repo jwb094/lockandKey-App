@@ -15,6 +15,7 @@
 
          <form action="" method="POST">
                 @csrf
+                @method('put')
                 <div class="mb-3">
                     <x-form-label for="title" class="form-label">Title</x-form-label>
                     <x-form-input type="text" class="form-control" id="title" name="title" placeholder=""></x-form-input>

@@ -12,8 +12,18 @@
 
     <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="col-md-12">
+            @if ($errors->any())
+            <x-form-alert class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </x-form-alert>
+            @endif
             <form action="" method="POST">
                 @csrf
+                @method('put')
                 <div class="mb-3">
                     <x-form-label for="category" class="form-label">Category</x-form-label>
                     <x-form-select class="form-select" aria-label="Default select example"></x-form-select>

@@ -12,7 +12,15 @@
 
     <div class="col-md-9 mx-sm-auto col-lg-8 px-md-4">
         <div class="col-md-12">
-
+            @if ($errors->any())
+            <x-form-alert class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </x-form-alert>
+            @endif
             <form action="" method="POST">
                 @csrf
                 <div class="mb-3">
@@ -32,10 +40,10 @@
                     <x-form-input type="password" class="form-control" id="username" name="username" placeholder=""></x-form-input>
                 </div>
                 <div class="mb-3">
-                       <div class="mb-3">
-                    <x-form-label for="notes" class="form-label">Notes</x-form-label>
-                    <x-form-textarea class="form-control" id="notes" name="notes" rows="3"></x-form-textarea>
-                </div>
+                    <div class="mb-3">
+                        <x-form-label for="notes" class="form-label">Notes</x-form-label>
+                        <x-form-textarea class="form-control" id="notes" name="notes" rows="3"></x-form-textarea>
+                    </div>
             </form>
         </div>
     </div>
