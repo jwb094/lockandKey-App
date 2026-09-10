@@ -223,89 +223,68 @@
         </div>
 
     </div> --}}
-<div class="file-tabs d-flex align-items-stretch">
+    <div class="file-tabs d-flex align-items-stretch">
 
-    <!-- Tabs -->
-    <div class="nav flex-column col-md-2" id="file-tabs" role="tablist">
+        <!-- Tabs -->
+        <div class="nav flex-column col-md-2" id="file-tabs" role="tablist">
 
-        <button
-            class="nav-link active"
-            id="profile-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#profile"
-            type="button"
-            role="tab"
-            aria-controls="profile"
-            aria-selected="true">
-            Profile
-        </button>
+            <button class="nav-link active" id="profile-tab" data-bs-toggle="pill" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">
+                Profile
+            </button>
 
-        <button
-            class="nav-link"
-            id="account-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#account"
-            type="button"
-            role="tab"
-            aria-controls="account"
-            aria-selected="false">
-            Account
-        </button>
+            <button class="nav-link" id="account-tab" data-bs-toggle="pill" data-bs-target="#account" type="button" role="tab" aria-controls="account" aria-selected="false">
+                Account
+            </button>
 
-        <button
-            class="nav-link"
-            id="password-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#password"
-            type="button"
-            role="tab"
-            aria-controls="password"
-            aria-selected="false">
-            Password
-        </button>
-
-    </div>
-
-
-    <!-- Content -->
-    <div class="tab-content flex-grow-1 col-md-8" id="file-tabs-content">
-
-        <div
-            class="tab-pane fade show active"
-            id="profile"
-            role="tabpanel"
-            aria-labelledby="profile-tab">
-
-            <h4>Profile</h4>
-            <p>Profile content goes here.</p>
+            <button class="nav-link" id="password-tab" data-bs-toggle="pill" data-bs-target="#password" type="button" role="tab" aria-controls="password" aria-selected="false">
+                Password
+            </button>
 
         </div>
 
-        <div
-            class="tab-pane fade"
-            id="account"
-            role="tabpanel"
-            aria-labelledby="account-tab">
 
-            <h4>Account</h4>
-            <p>Account content goes here.</p>
+        <!-- Content -->
+        <div class="tab-content flex-grow-1 col-md-8" id="file-tabs-content">
 
-        </div>
+            <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-        <div
-            class="tab-pane fade"
-            id="password"
-            role="tabpanel"
-            aria-labelledby="password-tab">
 
-            <h4>Password</h4>
-            <p>Password content goes here.</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">And a fifth one</li>
+                </ul>
+            </div>
+
+            <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">And a fifth one</li>
+                </ul>
+
+            </div>
+
+            <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">And a fifth one</li>
+                </ul>
+
+            </div>
 
         </div>
 
     </div>
-
-</div>
 
 </div>
 @endsection
