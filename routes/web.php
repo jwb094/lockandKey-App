@@ -47,14 +47,14 @@ Route::prefix('admin')->group(function () {
     Route::prefix('category')->group(function () {
         Route::get('/new', 
         function () {
-            return view('back-end.passwordCategory.edit');
+            return view('backend.passwordCategory.edit');
         })->name('category.store'); // Route to display form
         //Route::post('/save', [PasswordCategoryController::class, 'storeData'])->name('category.save'); // Route to handle form submission
         Route::get('/show/{id}', function () {
-            return view('back-end.passwordCategory.show');
+            return view('backend.passwordCategory.show');
         })->name('category.show');
         Route::get('/edit/{id}', function () {
-            return view('back-end.passwordCategory.edit');
+            return view('backend.passwordCategory.edit');
         })->name('category.edit');
      //   Route::post('/update/{id}', [PasswordCategoryController::class, 'updateData'])->name('category.update');
      //   Route::delete('/delete/{id}', [PasswordCategoryController::class, 'destroy'])->name('categories.destroy');
