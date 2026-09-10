@@ -1,6 +1,6 @@
 @extends('layouts.back-end')
 @push('styles')
-{{-- <link rel="stylesheet" href=" {{ URL::asset('css/dashboard.css') }}"> --}}
+<link rel="stylesheet" href=" {{ URL::asset('css/dashboard.css') }}">
 @endpush
 @section('title','Dashboard')
 @section('content')
@@ -8,7 +8,7 @@
 
     <!-- Page Header -->
 
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+    {{-- <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
 
         <div>
             <h1 class="h3 mb-1">
@@ -22,23 +22,23 @@
 
 
 
-    </div>
+    </div> --}}
 
 
     <!-- ==========================================
              Statistics
         ========================================== -->
 
- 
 
-  
+
+
 
 
     <!-- ==========================================
              Dashboard Content
         ========================================== -->
 
-    <div class="row g-4">
+    {{-- <div class="row g-4">
 
 
 
@@ -166,9 +166,146 @@
 
             </div>
 
+    </div> --}}
+
+    {{-- <div class="d-flex align-items-start">
+
+        <!-- Tab Navigation -->
+        <div class="nav flex-column nav-pills me-3 col-md-3" id="v-pills-tab" role="tablist">
+
+            <button class="nav-link active" id="profile-tab" data-bs-toggle="pill" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">
+                Profile
+            </button>
+
+            <button class="nav-link" id="settings-tab" data-bs-toggle="pill" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">
+                Settings
+            </button>
+
+            <button class="nav-link" id="security-tab" data-bs-toggle="pill" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">
+                Security
+            </button>
+
+        </div>
+
+
+        <!-- Tab Content -->
+        <div class="tab-content col-md-9" id="v-pills-tabContent">
+
+            <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+                <h3>Profile</h3>
+                <p>
+                    This is the profile content.
+                </p>
+
+            </div>
+
+
+            <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab" tabindex="0">
+
+                <h3>Settings</h3>
+                <p>
+                    This is the settings content.
+                </p>
+
+            </div>
+
+
+            <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab" tabindex="0">
+
+                <h3>Security</h3>
+                <p>
+                    This is the security content.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div> --}}
+<div class="file-tabs d-flex align-items-stretch">
+
+    <!-- Tabs -->
+    <div class="nav flex-column col-md-2" id="file-tabs" role="tablist">
+
+        <button
+            class="nav-link active"
+            id="profile-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#profile"
+            type="button"
+            role="tab"
+            aria-controls="profile"
+            aria-selected="true">
+            Profile
+        </button>
+
+        <button
+            class="nav-link"
+            id="account-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#account"
+            type="button"
+            role="tab"
+            aria-controls="account"
+            aria-selected="false">
+            Account
+        </button>
+
+        <button
+            class="nav-link"
+            id="password-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#password"
+            type="button"
+            role="tab"
+            aria-controls="password"
+            aria-selected="false">
+            Password
+        </button>
+
     </div>
 
 
+    <!-- Content -->
+    <div class="tab-content flex-grow-1 col-md-8" id="file-tabs-content">
+
+        <div
+            class="tab-pane fade show active"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab">
+
+            <h4>Profile</h4>
+            <p>Profile content goes here.</p>
+
+        </div>
+
+        <div
+            class="tab-pane fade"
+            id="account"
+            role="tabpanel"
+            aria-labelledby="account-tab">
+
+            <h4>Account</h4>
+            <p>Account content goes here.</p>
+
+        </div>
+
+        <div
+            class="tab-pane fade"
+            id="password"
+            role="tabpanel"
+            aria-labelledby="password-tab">
+
+            <h4>Password</h4>
+            <p>Password content goes here.</p>
+
+        </div>
+
+    </div>
+
+</div>
 
 </div>
 @endsection
