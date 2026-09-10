@@ -1,11 +1,89 @@
-  .full-height {
-      height: 100vh;
-      /* Make the flex container full viewport height */
-  }
+.file-tabs {
+    --tab-color: #e9ecef;
+    --tab-border: #ced4da;
+}
+
+/* -----------------------------
+   TAB NAVIGATION
+----------------------------- */
+
+.file-tabs .nav {
+    gap: 4px;
+}
+
+.file-tabs .nav-link {
+    position: relative;
+
+    color: #495057;
+    background-color: var(--tab-color);
+
+    border: 1px solid var(--tab-border);
+    border-radius: 6px 0 0 6px;
+
+    padding: 10px 20px;
+
+    text-align: left;
+
+    transition:
+        padding 0.2s ease,
+        background-color 0.2s ease;
+}
 
 
-  section {
-      overflow-y: auto;
-      /* Scroll content if it overflows */
-  }
-  
+/* -----------------------------
+   INACTIVE TABS
+----------------------------- */
+
+.file-tabs .nav-link:not(.active) {
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    font-size: 0.9rem;
+}
+
+
+/* -----------------------------
+   ACTIVE TAB
+----------------------------- */
+
+.file-tabs .nav-link.active {
+    color: #212529;
+
+    background-color: #ffffff;
+
+    /*
+     * Remove the right borders
+     * so the tab connects to content.
+     */
+    border-right: 0;
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    /*
+     * Make active tab larger.
+     */
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    z-index: 2;
+}
+
+
+/* -----------------------------
+   TAB CONTENT
+----------------------------- */
+
+.file-tabs .tab-content {
+    background-color: #ffffff;
+
+    border: 1px solid var(--tab-border);
+
+    border-left: 0;
+
+    padding: 25px;
+
+    min-height: 250px;
+
+    border-radius: 0 6px 6px 0;
+}
