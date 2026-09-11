@@ -54,7 +54,7 @@ class CategoryFactory extends Factory
         $name = $this->faker->unique()->randomElement($categories);
         return [
             //
-            'name' => $name,
+            'title' => $name,
             'notes' => fake()->paragraph()
         ];
     }
