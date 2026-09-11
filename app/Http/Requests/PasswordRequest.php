@@ -23,7 +23,7 @@ class PasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category_id' => 'nullable|numeric|exists:category,id',
+            'category_id' => 'nullable',
             'website' => 'required|string|max:255',
             'username' => 'required|string|max:255',
             'password' => 'required|string|max:255',
