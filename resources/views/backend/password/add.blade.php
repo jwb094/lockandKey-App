@@ -21,11 +21,11 @@
                 </ul>
             </x-form-alert>
             @endif
-            <form action="" method="POST">
+            <form action={{ route('backend.password.store') }} method="POST">
                 @csrf
                 <div class="mb-3">
                     <x-form-label for="category" class="form-label">Category</x-form-label>
-                    <x-form-select class="form-select" aria-label="Default select example"></x-form-select>
+                    <x-form-select class="form-select" aria-label="Default select example" :categories="$categories"></x-form-select>
                 </div>
                 <div class="mb-3">
                     <x-form-label for="website" class="form-label">Website</x-form-label>
