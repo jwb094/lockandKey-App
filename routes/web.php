@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PasswordController;
 use App\Http\Controllers\Public\UsersController;
@@ -31,23 +32,11 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('category')->group(function () {
 
-        Route::get('/', function () {
-            return view('backend.passwordCategory.index');
-        })->name('category.index');
-        Route::get(
-            '/new',
-            function () {
-                return view('backend.passwordCategory.edit');
-            }
-        )->name('category.store'); // Route to display form
-        //Route::post('/save', [PasswordCategoryController::class, 'storeData'])->name('category.save'); // Route to handle form submission
-        Route::get('/show/{id}', function () {
-            return view('backend.passwordCategory.show');
-        })->name('category.show');
-        Route::get('/edit/{id}', function () {
-            return view('backend.passwordCategory.edit');
-        })->name('category.edit');
-        //   Route::post('/update/{id}', [PasswordCategoryController::class, 'updateData'])->name('category.update');
-        //   Route::delete('/delete/{id}', [PasswordCategoryController::class, 'destroy'])->name('categories.destroy');
+        Route::get('/', [CategoryController::class, 'index'])->name('backend.category.index');
+        Route::get('/new', [CategoryController::class, 'create'])->name('backend.category.create'); // Route to display form
+        Route::post('/save', [CategoryController::class, 'store'])->name('backend.category.store'); // Route to handle form submission
+        Route::get('/edit/{category}', [CategoryController::class, 'edit'])->name('backend.category.edit');
+        Route::put('/update/{category}', [CategoryController::class, 'update'])->name('backend.category.update');
+        Route::delete('/delete/{category}', [CategoryController::class, 'destroy'])->name('backend.category.delete');
     });
 });
