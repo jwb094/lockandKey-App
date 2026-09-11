@@ -5,22 +5,21 @@
 @section('title','Dashboard')
 @section('content')
 <div class="container-fluid p-4">
+       <div class="my-4">
+            <a class="col-sm-2 btn btn-primary" href="{{ route('backend.password.add') }}">New Password</a>
+        </div>
     <div class="file-tabs d-flex align-items-stretch">
-
+ 
         <!-- Tabs -->
         <div class="nav flex-column col-md-2" id="file-tabs" role="tablist">
 
-            <button class="nav-link active" id="profile-tab" data-bs-toggle="pill" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">
-                Profile
+            @foreach($passwordsByCategories as $category)
+
+            <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="category-{{ $category->id }}-tab" data-bs-toggle="pill" data-bs-target="#category-{{ $category->id }}" type="button" role="tab" aria-controls="category-{{ $category->id }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}">
+                {{ $category->title }}
             </button>
 
-            <button class="nav-link" id="account-tab" data-bs-toggle="pill" data-bs-target="#account" type="button" role="tab" aria-controls="account" aria-selected="false">
-                Account
-            </button>
-
-            <button class="nav-link" id="password-tab" data-bs-toggle="pill" data-bs-target="#password" type="button" role="tab" aria-controls="password" aria-selected="false">
-                Password
-            </button>
+            @endforeach
 
         </div>
 
@@ -28,39 +27,15 @@
         <!-- Content -->
         <div class="tab-content flex-grow-1 col-md-8" id="file-tabs-content">
 
-            <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                @php
-                $categories = [
-                "Algebra",
-                "Calculus",
-                "Geometry",
-                "Statistics", "Biology",
-                "Chemistry",
-                "Physics",
-                "Astronomy"
-                ]
-                @endphp
+            @foreach($passwordsByCategories as $category)
 
-                <x-list class="list-group list-group-flush" :categories="$categories">
+            <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="category-{{ $category->id }}" role="tabpanel" aria-labelledby="category-{{ $category->id }}-tab">
 
-                </x-list>
-            </div>
-
-            <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
-
-                <x-list class="list-group list-group-flush" :categories="$categories">
-
-                </x-list>
+                <x-list class="list-group list-group-flush" :categories="$category->passwords" />
 
             </div>
 
-            <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-
-                <x-list class="list-group list-group-flush" :categories="$categories">
-
-                </x-list>
-
-            </div>
+            @endforeach
 
         </div>
 
