@@ -9,4 +9,11 @@ class Category extends Model
 {
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
+
+
+
+    public function passwords()
+    {
+        return $this->hasMany(Password::class);
+    }
 }
