@@ -18,10 +18,9 @@ return new class extends Migration
             $table->string('password');
             $table->string('password_hash');
             $table->longText('notes');
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-            ->onDelete('cascade');
+            $table->foreignId('category_id')
+                ->constrained('categories')
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }
