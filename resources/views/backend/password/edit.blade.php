@@ -45,7 +45,7 @@
                 </div>
                 <div class="mb-3">
                     <x-form-label for="notes" class="form-label">Notes</x-form-label>
-                    <x-form-textarea class="form-control" id="notes" name="notes" rows="3"> value="{{ old('notes',$password->notes) }}"</x-form-textarea>
+                    <x-form-textarea class="form-control" id="notes" name="notes" rows="3">{{ old('notes',$password->notes) }}</x-form-textarea>
                 </div>
                                     <x-form-button class="btn btn-primary w-100 py-2 mt-2" type="submit"> Update</x-form-button>
             </form>
