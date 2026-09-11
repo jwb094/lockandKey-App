@@ -16,7 +16,7 @@
             @foreach($passwordsByCategories as $category)
 
             <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="category-{{ $category->id }}-tab" data-bs-toggle="pill" data-bs-target="#category-{{ $category->id }}" type="button" role="tab" aria-controls="category-{{ $category->id }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}">
-                {{ $category->title }}
+                {{ $category->title }} ({{ count($category->passwords) }})
             </button>
 
             @endforeach
