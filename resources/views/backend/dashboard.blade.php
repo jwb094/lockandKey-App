@@ -5,11 +5,83 @@
 @section('title','Dashboard')
 @section('content')
 <div class="container-fluid p-4">
-       <div class="my-4">
-            <a class="col-sm-2 btn btn-primary" href="{{ route('backend.password.add') }}">New Password</a>
+    <div class="my-4">
+        <a class="col-sm-2 btn btn-primary" href="{{ route('backend.password.add') }}">New Password</a>
+    </div>
+    <div class="accordion d-md-none" id="accordion-category">
+
+    @foreach($passwordsByCategories as $category)
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#accordion-category-{{ $category->id }}"
+                    aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
+                    aria-controls="accordion-category-{{ $category->id }}"
+                >
+                    {{ $category->title }} ({{ count($category->passwords) }})
+                </button>
+            </h2>
+
+            <div
+                id="accordion-category-{{ $category->id }}"
+                class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
+                data-bs-parent="#accordion-category"
+            >
+                <div class="accordion-body">
+
+                    <ul class="list-group list-group-flush">
+
+                        @foreach($category->passwords as $value)
+
+                            <li class="list-group-item mb-3">
+                                {{ $value->website }}
+
+                                <div class="mt-2">
+                                    <a
+                                        class="btn"
+                                        href="{{ route('backend.password.edit', $value->id) }}"
+                                    >
+                                        Edit
+                                    </a>
+
+                                    <form
+                                        action="{{ route('backend.password.delete', $value->id) }}"
+                                        method="POST"
+                                        style="display:inline;"
+                                    >
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button
+                                            type="submit"
+                                            class="btn btn-danger"
+                                        >
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </li>
+
+                        @endforeach
+
+                    </ul>
+
+                </div>
+            </div>
+
         </div>
+
+    @endforeach
+
+</div>
+    
     <div class="file-tabs d-flex align-items-stretch">
- 
+
         <!-- Tabs -->
         <div class="nav flex-column col-md-2" id="file-tabs" role="tablist">
 
@@ -25,7 +97,7 @@
 
 
         <!-- Content -->
-        <div class="tab-content flex-grow-1 col-md-8" id="file-tabs-content">
+        <div class="tab-content flex-grow-1  col-md-8" id="file-tabs-content">
 
             @foreach($passwordsByCategories as $category)
 
