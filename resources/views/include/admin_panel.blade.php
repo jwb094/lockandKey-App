@@ -77,7 +77,7 @@
 
         <hr class="border-secondary">
 
-       <a href="#"
+       <a href={{ route('logout') }}
              class="nav-link"
         >
             <span class="me-2"><i class="bi bi-door-closed-fill"></i></span>

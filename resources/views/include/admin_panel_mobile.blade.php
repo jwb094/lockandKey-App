@@ -58,9 +58,9 @@
                 </li>
 
                 <li>
-                    {{-- <a class="dropdown-item text-danger" href={{ route('admin.logout') }}>
+             <a class="dropdown-item text-danger"href={{ route('logout') }}>
                         <i class="bi bi-door-closed-fill"></i> Logout
-                    </a> --}}
+                    </a>
                 </li>
 
             </ul>
