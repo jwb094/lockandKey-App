@@ -98,7 +98,7 @@ class CategoryController extends Controller
         $previousRecord = $category->title;
         $category->delete();
 
-        return  redirect(route('dashboard'))->with('status', true)
+        return  redirect(route('backend.category.index'))->with('status', true)
             ->with('message', $previousRecord . " was deleted");
     }
 }
