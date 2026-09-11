@@ -24,49 +24,28 @@
 
     <nav class="nav flex-column">
 
-       <a href="#"  class="nav-link active"> 
-        {{-- @if(request()->is('admin/dashboard'))
+       <a href={{ route('dashboard') }} 
+        @if(request()->is('admin/dashboard'))
              class="nav-link active"
         @else
              class="nav-link"
-        @endif --}}
-       
+        @endif
+    >
             <span class="me-2"><i class="bi bi-clipboard-data"></i></span>
             Dashboard
         </a>
 
-        <a href="#" class="nav-link">
+        <a href="{{ route('backend.category.index') }} " 
+            @if(request()->is('admin/category'))
+             class="nav-link active"
+        @else
+             class="nav-link"
+        @endif>
             <span class="me-2">👥</span>
-            Users
+            Category
         </a>
 
-        <a href="#"
-             class="nav-link"
-        >
-            <span class="me-2"><i class="bi bi-person-lines-fill"></i></span>
-            Contacts
-        </a>
 
-       <a href="#"
-             class="nav-link"
-        >
-            <span class="me-2"><i class="bi bi-bookmark"></i></span>
-            Tags
-        </a>
-      
-        <a href="#"
-             class="nav-link"
-        >
-            <span class="me-2"><i class="bi bi-person-square"></i></span>
-            My Profile
-        </a>
-
-          <a href="#"
-             class="nav-link"
-        >
-            <span class="me-2"><i class="bi bi-file-earmark-fill"></i></span>
-            Export/Import
-        </a>
 
     </nav>
 
