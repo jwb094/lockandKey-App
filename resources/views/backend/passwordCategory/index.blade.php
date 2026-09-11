@@ -8,37 +8,30 @@
     <div class="row">
         <h1 class="text-center">Categories</h1>
     </div>
+        <div class="my-4">
+            <a class="col-sm-2 btn btn-primary" href="{{ route('backend.category.create') }}">New Category</a>
+        </div>
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Title</th>
-                <th scope="col">No of Tagged Password</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
-            @php
-            $categories = [
-            ["title"=> "Algebra",
-            "count" => 8],
-            ["title"=> "Algebra",
-            "count" => 5],
-            ["title"=> "Algebra",
-            "count" => 4],
-            ["title"=> "Algebra",
-            "count" => 9],
-            ]
-            @endphp
             <tr>
                 @foreach($categories as $key => $value)
 
-                <th scope="row">1</th>
-                <td>{{ $value['title'] }}</td>
-                <td>{{ $value['count'] }}</td>
+
+                <td>{{ $value->title }}</td>
+
                 <td>
-                    <a type="button" class="btn" href="">Edit</a>
-                    <a type="button" class="btn" href="">Delete</a>
+                    <a type="button" class="btn" href="{{ route('backend.category.edit',$value->id) }}">Edit</a>
+                    <form action="{{ route('backend.category.delete',$value->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?')">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
