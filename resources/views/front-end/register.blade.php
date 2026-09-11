@@ -4,13 +4,27 @@
 @endpush
 @section('title','home')
 @section('content')
+
+
+@if ($errors->any())
+<div class="w-100 d-flex justify-content-center align-items-center mx-auto" style="max-width: 400px;">
+    <x-form-alert class="alert alert-danger">
+        <ul class="mb-0 p-0">
+            @foreach ($errors->all() as $error)
+            <li class="mb-1">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </x-form-alert>
+</div>
+@endif
+
 <div class="w-100 d-flex justify-content-center align-items-center mx-auto" style="max-width: 400px;">
     <section class="form-signin w-100 m-auto">
         <form action={{ route('registeration') }} method="POST">
             @csrf
             <h1 class="h3 mb-3 fw-normal text-center"> Register</h1>
             <div class="form-floating">
-                <input type="text" class="form-control | mb-2" name="last_name" id="floatingInput-FirstName" placeholder="Luthor">
+                <input type="text" class="form-control | mb-2" name="first_name" id="floatingInput-FirstName" placeholder="Luthor">
                 <x-form-label for="floatingInput-FirstName">First Name</x-form-label>
             </div>
             <div class="form-floating">
