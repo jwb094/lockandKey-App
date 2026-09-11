@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PasswordController;
 use App\Http\Controllers\Public\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -7,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UsersController::class, 'index'])->name('home');
 
 Route::prefix('/')->group(function () {
-    Route::post('/login',[UsersController::class, 'login'])->name('login');
+    Route::post('/login', [UsersController::class, 'login'])->name('login');
     Route::get('/register', [UsersController::class, 'register'])->name('register');
     Route::post('/registeration', [UsersController::class, 'store'])->name('registeration');
     Route::get('/logout', [UsersController::class, 'logout'])->name('logout');
@@ -16,23 +18,14 @@ Route::prefix('/')->group(function () {
 
 Route::prefix('admin')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('backend.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     //Password
     Route::prefix('password')->group(function () {
-        Route::get('/new', function () {
-            return view('backend.password.add');
-        })->name('backend.password.add');
-        //Route::post('/save', [PasswordManagerController::class, 'store'])->name('password.store');
-        Route::get('/show/{id}', function () {
-            return view('backend.password.edit');
-        })->name('backend.password.show');
-        Route::get('/edit/{id}', function () {
-            return view('backend.password.edit');
-        })->name('backend.password.edit');
-        // Route::post('/update/{id}', [PasswordManagerController::class, 'update'])->name('password.update');
-        // Route::delete('/delete/{id}', [PasswordManagerController::class, 'delete'])->name('password.delete');
+        Route::get('/new', [PasswordController::class, 'create'])->name('backend.password.add');
+        Route::post('/save', [PasswordController::class, 'store'])->name('backend.password.store');
+        Route::get('/edit/{password}', [PasswordController::class, 'edit'])->name('backend.password.edit');
+        Route::put('/update/{password}', [PasswordController::class, 'update'])->name('backend.password.update');
+        Route::delete('/delete/{password}', [PasswordController::class, 'destroy'])->name('backend.password.delete');
     });
 
 
