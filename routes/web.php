@@ -1,24 +1,16 @@
 <?php
 
+use App\Http\Controllers\Public\UsersController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/', function () {
-    return view('front-end.index');
-})->name('home');
+Route::get('/', [UsersController::class, 'index'])->name('home');
 
 Route::prefix('/')->group(function () {
-    // Route::post('/login', function () {
-    //     return view('front-end.index');
-    // })->name('login');
-    Route::get('/register', function () {
-        return view('front-end.register');
-    })->name('register');
-    //Route::post('/registeration', [AuthManager::class, 'register'])->name('registeration');
-    //Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+    Route::post('/login',[UsersController::class, 'login'])->name('login');
+    Route::get('/register', [UsersController::class, 'register'])->name('register');
+    Route::post('/registeration', [UsersController::class, 'store'])->name('registeration');
+    Route::get('/logout', [UsersController::class, 'logout'])->name('logout');
 });
 
 
