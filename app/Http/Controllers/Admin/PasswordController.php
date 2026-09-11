@@ -24,6 +24,7 @@ class PasswordController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -85,7 +86,7 @@ class PasswordController extends Controller
         $updatedPassword = $this->password_CategoryService->updatePasswordRecord($request->validated(), $password->id);
 
         if (!$updatedPassword->id) {
-            return  redirect(route('backend.password.add'))
+            return  redirect(route('backend.password.edit',$password->id))
                 ->with('status', false)
                 ->with('message', "Password didn't update, try again please");;
         }
