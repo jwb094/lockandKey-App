@@ -26,11 +26,11 @@ class PasswordFactory extends Factory
         $plainPassword = fake()->password(8, 20);
         return [
 
-        'username'      => $this->faker()->userName(),          // e.g., 'john.doe' or 'amanda62'
-        'website'       => $this->faker()->url(),               // e.g., 'https://smith.com'
+        'username'      => fake()->userName(),          // e.g., 'john.doe' or 'amanda62'
+        'website'       => fake()->url(),               // e.g., 'https://smith.com'
         'password'      => $plainPassword,              // Plain text password string
         'password_hash' => Hash::make($plainPassword),   // Securely hashed Laravel variant
-        'notes'         => $this->faker()->realText(200),
+        'notes'         => fake()->realText(200),
         'category_id'   => $category->id       // A readable paragraph up to 200 characters
         ];
     }
