@@ -26,6 +26,15 @@ class Password_CategoryService
     }
 
 
+    public function getAllCategories()
+    {
+
+        $categories = Category::all();
+
+        return $categories;
+    }
+
+
     public function createPasswordRecord(array $newPasswordData): Password
     {
 
@@ -38,7 +47,7 @@ class Password_CategoryService
 
 
 
-    public function updatePasswordRecord(array $updatedPasswordData,int $updatedPasswordDataId): Password
+    public function updatePasswordRecord(array $updatedPasswordData, int $updatedPasswordDataId): Password
     {
 
         $password = Password::findOrFail($updatedPasswordDataId);
@@ -52,9 +61,25 @@ class Password_CategoryService
     }
 
 
-    public function createCategoryRecord() {}
+    public function createCategoryRecord(array $newCategoryData): Category
+    {
+
+        $category = Category::create($newCategoryData);
+
+        return $category;
+    }
 
 
 
-    public function updateCategoryRRecord() {}
+    public function updateCategoryRecord(array $updatedCategoryData ,int $updatedCategeoryDataId)
+    {
+
+
+
+        $password = Password::findOrFail($updatedCategeoryDataId);
+
+
+        $password->update($updatedCategoryData);
+        return $password->refresh();
+    }
 }
