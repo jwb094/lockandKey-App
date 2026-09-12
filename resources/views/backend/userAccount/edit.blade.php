@@ -7,19 +7,19 @@
 
 <div class="container-fluid">
     <div class="row">
-        @if ($status)
-            @if ($status === false)
-            <x-form-alert class="alert alert-danger">
-                <li>{{ $message }}</li>
-                </ul>
-            </x-form-alert>
-            @endif
-            @if ($status === true)
-            <x-form-alert class="alert alert-success">
-                <li>{{ $message }}</li>
-                </ul>
-            </x-form-alert>
-            @endif
+        @if (session('status'))
+        <x-form-alert class="alert alert-success">
+            {{ session('message') }}
+        </x-form-alert>
+        @endif
+        @if ($errors->any())
+        <x-form-alert class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </x-form-alert>
         @endif
         <!-- Main content -->
         <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

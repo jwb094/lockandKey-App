@@ -8,6 +8,11 @@
     <div class="my-4">
         <a class="col-sm-2 btn btn-primary" href="{{ route('backend.password.create') }}">New Password</a>
     </div>
+            @if (session('status'))
+        <x-form-alert class="alert alert-success">
+            {{ session('message') }}
+        </x-form-alert>
+        @endif
     <div class="accordion d-md-none" id="accordion-category">
 
     @foreach($passwordsByCategories as $category)

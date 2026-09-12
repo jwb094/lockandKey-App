@@ -8,6 +8,11 @@
     <div class="row">
         <h1 class="text-center">Categories</h1>
     </div>
+            @if (session('status'))
+        <x-form-alert class="alert alert-success">
+            {{ session('message') }}
+        </x-form-alert>
+        @endif
         <div class="my-4">
             <a class="col-sm-2 btn btn-primary" href="{{ route('backend.category.create') }}">New Category</a>
         </div>
