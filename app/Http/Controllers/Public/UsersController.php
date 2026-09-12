@@ -57,7 +57,7 @@ class UsersController extends Controller
             return  redirect(route('register'))
                 ->with('status', false)->with('message', "Registration failed, try again please");;
         }
-        return  redirect(route('home'))->with('status', true)
+        return  redirect(route('login'))->with('status', true)
             ->with('message', "Registration successfully");;
     }
 
