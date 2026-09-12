@@ -8,69 +8,48 @@
     <div class="my-4">
         <a class="col-sm-2 btn btn-primary" href="{{ route('backend.password.create') }}">New Password</a>
     </div>
-            @if (session('status'))
-        <x-form-alert class="alert alert-success">
-            {{ session('message') }}
-        </x-form-alert>
-        @endif
+    @if (session('status'))
+    <x-form-alert class="alert alert-success">
+        {{ session('message') }}
+    </x-form-alert>
+    @endif
     <div class="accordion d-md-none" id="accordion-category">
 
-    @foreach($passwordsByCategories as $category)
+        @foreach($passwordsByCategories as $category)
 
         <div class="accordion-item">
 
             <h2 class="accordion-header">
-                <button
-                    class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#accordion-category-{{ $category->id }}"
-                    aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
-                    aria-controls="accordion-category-{{ $category->id }}"
-                >
+                <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-category-{{ $category->id }}" aria-expanded="{{ $loop->first ? 'true' : 'false' }}" aria-controls="accordion-category-{{ $category->id }}">
                     {{ $category->title }} ({{ count($category->passwords) }})
                 </button>
             </h2>
 
-            <div
-                id="accordion-category-{{ $category->id }}"
-                class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
-                data-bs-parent="#accordion-category"
-            >
+            <div id="accordion-category-{{ $category->id }}" class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}" data-bs-parent="#accordion-category">
                 <div class="accordion-body">
 
                     <ul class="list-group list-group-flush">
 
                         @foreach($category->passwords as $value)
 
-                            <li class="list-group-item mb-3">
-                                {{ $value->website }}
+                        <li class="list-group-item mb-3">
+                            {{ $value->website }}
 
-                                <div class="mt-2">
-                                    <a
-                                        class="btn"
-                                        href="{{ route('backend.password.edit', $value->id) }}"
-                                    >
-                                        Edit
-                                    </a>
+                            <div class="mt-2">
+                                <a class="btn" href="{{ route('backend.password.edit', $value->id) }}">
+                                    Edit
+                                </a>
 
-                                    <form
-                                        action="{{ route('backend.password.destroy', $value->id) }}"
-                                        method="POST"
-                                        style="display:inline;"
-                                    >
-                                        @csrf
-                                        @method('DELETE')
+                                <form action="{{ route('backend.password.destroy', $value->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
 
-                                        <button
-                                            type="submit"
-                                            class="btn btn-danger"
-                                        >
-                                            Delete
-                                        </button>
-                                    </form>
-                                </div>
-                            </li>
+                                    <button type="submit" class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
 
                         @endforeach
 
@@ -81,11 +60,11 @@
 
         </div>
 
-    @endforeach
+        @endforeach
 
-</div>
-    
-    <div class="file-tabs d-flex align-items-stretch">
+    </div>
+
+    <div class="file-tabs d-flex align-items-stretch d-none d-md-flex">
 
         <!-- Tabs -->
         <div class="nav flex-column col-md-2" id="file-tabs" role="tablist">
