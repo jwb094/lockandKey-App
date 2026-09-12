@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PasswordController;
+use App\Http\Controllers\Admin\UserAccountController;
 use App\Http\Controllers\Public\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,10 @@ Route::prefix('/')->group(function () {
 Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::put('/profile/update/{id}', [UserAccountController::class, 'update'])->name('backend.user.update');
+    Route::get('/profile', [UserAccountController::class, 'edit'])->name('backend.user.edit');
+
     //Password
     Route::resource('password', PasswordController::class)
         ->names('backend.password');
