@@ -24,17 +24,11 @@ class UserAccountController extends Controller
     public function update(UserService $userService, UserRegisterRequest $request, string $id)
     {
 
-        $updatedUser = $userService->updateUserAccount($request->validated(), (int) $id);
+       $userService->updateUserAccount($request->validated(), (int) $id);
 
-        if(!$updatedUser->id){
-
-            return redirect()->route('backend.user.edit')
-                ->with('status', false)
-                ->with('message', "Admin details wasn't updated");
-        }
           return redirect()->route('backend.user.edit')
                 ->with('status', true)
-                ->with('message', "Admin details were updated");
+                ->with('message', "Your details were updated");
 
 
     }
