@@ -6,7 +6,7 @@
 @section('content')
 <div class="container-fluid p-4">
     <div class="my-4">
-        <a class="col-sm-2 btn btn-primary" href="{{ route('backend.password.index') }}">New Password</a>
+        <a class="col-sm-2 btn btn-primary" href="{{ route('backend.password.create') }}">New Password</a>
     </div>
     <div class="accordion d-md-none" id="accordion-category">
 
