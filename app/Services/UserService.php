@@ -26,4 +26,18 @@ class UserService
             'password' => $loginDetails['password']
         ]);
     }
+
+
+
+    public function updateUserAccount(array $updatedUserData, int $updatedUserDataId): User
+    {
+
+        $updatedUser = User::findOrFail($updatedUserDataId);
+
+        $updatedUserData['password_hash'] = Hash::make($updatedUserData['password']);
+        //dd($updatedUserData);
+        $updatedUser->update($updatedUserData);
+
+        return $updatedUser->refresh();
+    }
 }
