@@ -45,6 +45,16 @@
             Category
         </a>
 
+             <a href="{{ route('backend.user.edit') }} " 
+            @if(request()->is('admin/profile'))
+             class="nav-link active"
+        @else
+             class="nav-link"
+        @endif>
+            <span class="me-2">👥</span>
+            Profile
+        </a>
+
 
 
     </nav>
