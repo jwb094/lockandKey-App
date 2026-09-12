@@ -47,11 +47,11 @@ class CategoryController extends Controller
 
         if (!$newCategory->id) {
             return  redirect(route('backend.category.add'))
-                ->with('status', false)->with('message', "New Category didn't save, try again please");;
+                ->with('status', false)->with('message', "New record didn't save, try again please");;
         }
         return  redirect(route('backend.category.index'))
             ->with('status', true)
-            ->with('message', "New Record Insert successfully");
+            ->with('message', "New record was created");
     }
 
     /**
@@ -83,11 +83,11 @@ class CategoryController extends Controller
         if (!$updatedCategory->id) {
             return  redirect(route('backend.category.edit', $category->id))
                 ->with('status', false)
-                ->with('message', "Password didn't update, try again please");;
+                ->with('message', "update failed try again please");;
         }
         return  redirect(route('backend.category.index'))
             ->with('status', true)
-            ->with('message', "Record was updated successfully");
+            ->with('message', "update was successfully");
     }
 
     /**

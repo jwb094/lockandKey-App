@@ -47,7 +47,7 @@ class PasswordController extends Controller
 
         if (!$newUser->id) {
             return  redirect(route('backend.password.add'))
-                ->with('status', false)->with('message', "New Password didn't save, try again please");;
+                ->with('status', false)->with('message', "New Record didn't save, try again please");;
         }
         return  redirect(route('dashboard'))
             ->with('status', true)
@@ -88,11 +88,11 @@ class PasswordController extends Controller
         if (!$updatedPassword->id) {
             return  redirect(route('backend.password.edit',$password->id))
                 ->with('status', false)
-                ->with('message', "Password didn't update, try again please");;
+                ->with('message', "New REcord didn't update, try again please");;
         }
         return  redirect(route('dashboard'))
             ->with('status', true)
-            ->with('message', "New Record Insert successfully");
+            ->with('message', "New Record was successfully updated");
     }
 
     /**
