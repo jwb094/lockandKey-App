@@ -31,7 +31,7 @@ class UsersController extends Controller
 
         $authenciated = $this->userService->userAuth($loginCredentials);
 
-        if ($authenciated) {
+        if (!$authenciated) {
             return redirect()
                 ->intended(route('login'))
                 ->with('success', "You have successfully logged in");
