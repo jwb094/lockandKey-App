@@ -35,7 +35,7 @@ class UserService
         $updatedUser = User::findOrFail($updatedUserDataId);
 
         $updatedUserData['password_hash'] = Hash::make($updatedUserData['password']);
-        //dd($updatedUserData);
+
         $updatedUser->update($updatedUserData);
 
         return $updatedUser->refresh();
