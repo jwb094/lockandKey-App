@@ -33,11 +33,11 @@ class UsersController extends Controller
 
         if ($authenciated) {
             return redirect()
-                ->intended(route('dashboard'))
+                ->intended(route('login'))
                 ->with('success', "You have successfully logged in");
         }
 
-        return  redirect(route('login'))
+        return  redirect(route('dashboard'))
             ->with('message', "Login unsuccessfully");
     }
 
@@ -66,6 +66,6 @@ class UsersController extends Controller
         Session::flush();
         Auth::logout();
 
-        return  redirect(route('home'));
+        return  redirect(route('login'));
     }
 }
