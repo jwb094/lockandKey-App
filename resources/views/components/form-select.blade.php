@@ -7,6 +7,6 @@
 
     <option selected value="0">Select a Category</option>
     @foreach($categories as $key => $value)
-    <option value="{{ $key }}" @selected(old($fieldname,($recordFieldData === $key)))>{{ $value->title}}</option>
+    <option value="{{ $value->id }}" @selected(old($fieldname,($recordFieldData === $value->id)))>{{ $value->title}}</option>
     @endforeach
 </select>
