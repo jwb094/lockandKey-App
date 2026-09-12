@@ -26,7 +26,13 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password_hash' => 'hashed',
         ];
+    }
+
+
+    public function getAuthPasswordName(): string
+    {
+        return 'password_hash';
     }
 }
