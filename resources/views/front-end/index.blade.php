@@ -7,7 +7,7 @@
 <div class="w-100 d-flex justify-content-center align-items-center mx-auto" style="max-width: 400px;">
 
     <section class="form-signin w-100 m-auto">
-        <form action={{ route('login') }} method="POST">
+        <form action={{ route('login.auth') }} method="POST">
             @csrf
             <h1 class="h3 mb-3 fw-normal text-center"> Sign in</h1>
             <div class="form-floating">

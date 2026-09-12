@@ -6,7 +6,7 @@
           {{ $value->website }}
           <div>
               <a type="button" class="btn" href={{ route('backend.password.edit',$value->id) }}>Edit</a>
-              <form action="{{ route('backend.password.delete',$value->id) }}" method="POST" style="display:inline;">
+              <form action="{{ route('backend.password.destroy',$value->id) }}" method="POST" style="display:inline;">
                   @csrf
                   @method('DELETE')
                   {{-- <a type="button" class="btn" href={{ route('backend.password.delete',$value->id) }}></a>Delete</a> --}}
