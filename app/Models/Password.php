@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['website', 'username', 'email', 'password', 'password_hash', 'category_id'])]
+#[Fillable(['website', 'username', 'email', 'password', 'password_hash','notes', 'category_id'])]
 class Password extends Model
 {
     /** @use HasFactory<\Database\Factories\PasswordFactory> */
