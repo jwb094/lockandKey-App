@@ -25,7 +25,7 @@
                 @csrf
                 <div class="mb-3">
                     <x-form-label for="category" class="form-label">Category</x-form-label>
-                    <x-form-select class="form-select" name="category_id" aria-label="Default select example"  :categories="$categories"></x-form-select>
+                    <x-form-select class="form-select" name="category_id" aria-label="Default select example"  :categories="$categories" fieldname="category_id"></x-form-select>
                 </div>
                 <div class="mb-3">
                     <x-form-label for="website" class="form-label">Website</x-form-label>
