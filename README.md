@@ -1,10 +1,9 @@
 # 🔐 Password Keeper
 
-A Laravel-based password management application for securely organising and managing website login credentials.
+Password Keeper is a Laravel-based password management application for organising and tracking website login credentials in a simple dashboard.
 
-The application allows users to store website credentials, organise passwords into categories, and manage their saved passwords through a responsive dashboard.
+This project is designed as a practical Laravel learning app for CRUD, authentication, validation, Blade views, Eloquent relationships, and responsive UI patterns. It supports storing password records, grouping them into categories, and managing authenticated users.
 
-> **Status:** 🚧 Work in Progress
 
 ---
 
@@ -34,17 +33,16 @@ Password Keeper is a web application built with Laravel that provides a centrali
 
 Users can:
 
+* Register an account and sign in
 * Create password records
-* Store website and username information
-* Store encrypted/hashed password data
+* Store website, username, and notes for each credential
 * Organise passwords by category
-* Edit existing password records
-* Delete password records
-* View passwords through a responsive dashboard
-* Manage categories
-* Authenticate through a user account
+* Edit or delete existing password records
+* View and manage the dashboard from desktop and mobile layouts
+* Manage categories and user profile details
+* Authenticate through a Laravel user account
 
-The project is also being used as a practical Laravel application to develop experience with MVC architecture, Eloquent relationships, Form Requests, Actions, Services, authentication, database migrations and Blade components.
+The project is being used as a practical Laravel application to develop experience with MVC architecture, Eloquent relationships, form requests, actions, services, authentication, migrations, and Blade components.
 
 ---
 
@@ -104,6 +102,17 @@ Passwords are displayed using a tab-based interface.
 #### Mobile
 
 Passwords are displayed using a Bootstrap accordion to provide a more suitable mobile interface.
+
+---
+
+## 📸 Application Preview
+
+The project does not currently include committed app screenshots in the repository, so the following mockups reflect the login screen and dashboard layout used by the current app design.
+
+<p align="center">
+  <img src="docs/images/password-keeper-login.svg" alt="Password Keeper login screen mockup" width="420" />
+  <img src="docs/images/password-keeper-dashboard.svg" alt="Password Keeper dashboard mockup" width="620" />
+</p>
 
 ---
 
@@ -280,7 +289,7 @@ Auth::logout()
 Login Page
 ```
 
-The application uses a custom `password_hash` database column for storing password hashes.
+The application uses a custom `password_hash` database column for authentication-related hashing. In this learning project, password records also include a `password` field alongside the hash, so the code is best treated as a demo implementation rather than a production-grade secret storage pattern.
 
 ---
 
@@ -320,6 +329,24 @@ cp .env.example .env
 
 ```bash
 php artisan key:generate
+```
+
+### 6. Create the SQLite Database File (if needed)
+
+```bash
+touch database/database.sqlite
+```
+
+### 7. Run Migrations
+
+```bash
+php artisan migrate
+```
+
+Alternatively, the project includes a convenience setup script:
+
+```bash
+composer run setup
 ```
 
 ---
@@ -560,7 +587,7 @@ Important considerations include:
 * Production applications should use HTTPS.
 * Application secrets should not be committed to version control.
 
-> **Important:** This project is primarily a Laravel development/learning project and should not be considered a production-grade password manager without further security review and additional protections.
+> **Important:** This project is a Laravel learning/demo application. It uses Laravel's hashing for authentication-related fields such as `password_hash`, but it is not a production-grade password manager and should not be treated as a secure credential vault without additional encryption, secret management, and a full security review.
 
 ---
 
@@ -624,11 +651,3 @@ Key concepts explored include:
 * Application architecture
 
 ---
-
-## 📌 Project Status
-
-**Work in Progress**
-
-The application is actively being developed and refactored as new Laravel concepts and architectural patterns are introduced.
-
-The current focus is on building a clean Laravel architecture while keeping the application practical and maintainable.
