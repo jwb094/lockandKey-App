@@ -38,7 +38,7 @@ class UsersController extends Controller
         }
 
         return  redirect(route('dashboard'))
-            ->with('message', "Login unsuccessfully");
+            ->with('message', "Login successfully");
     }
 
 
